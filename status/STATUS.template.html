@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agile Pipeline — STATUS</title>
+<style>
+  :root { --bg:#0e1116; --card:#161b22; --line:#2b323c; --text:#e6edf3; --muted:#8b949e;
+          --done:#2ea043; --run:#d29922; --wait:#1f6feb; --todo:#6e7681; }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f6f8fa; --card:#fff; --line:#d0d7de; --text:#1f2328; --muted:#636c76; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "DM Sans", system-ui, sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:20px 24px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:18px; }
+  .meta { color:var(--muted); font-size:13px; margin-top:4px; }
+  .board { display:flex; gap:12px; padding:20px; overflow-x:auto; }
+  .col { flex:0 0 220px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
+  .col h2 { font-size:13px; margin:0 0 10px; display:flex; justify-content:space-between; align-items:center; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:999px; color:#fff; }
+  .b-done{background:var(--done)} .b-run{background:var(--run)} .b-wait{background:var(--wait)} .b-todo{background:var(--todo)}
+  .art { font-size:12px; color:var(--muted); margin:6px 0 0; word-break:break-all; }
+  .dod { font-size:12px; margin:8px 0 0; }
+  footer { padding:12px 24px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Agile Pipeline — Ticket: <span data-field="ticket">T001</span></h1>
+  <div class="meta">Dự án: <span data-field="project">my-new-project</span> ·
+    Cập nhật: <span data-field="updated">—</span></div>
+</header>
+
+<!-- Orchestrator cập nhật class badge (b-done/b-run/b-wait/b-todo), text trạng thái,
+     đường dẫn artifact, và DoD pass/fail cho từng cột. -->
+<div class="board">
+  <div class="col"><h2>1. Yêu cầu <span class="badge b-todo" data-status="requirements">TODO</span></h2>
+    <div class="art" data-art="requirements">specs/&lt;id&gt;-prd.md</div>
+    <div class="dod" data-dod="requirements"></div></div>
+
+  <div class="col"><h2>2. Thiết kế <span class="badge b-todo" data-status="design">TODO</span></h2>
+    <div class="art" data-art="design">design/&lt;id&gt;-design-spec.md</div>
+    <div class="dod" data-dod="design"></div></div>
+
+  <div class="col"><h2>3. Kiến trúc & DB <span class="badge b-todo" data-status="architecture">TODO</span></h2>
+    <div class="art" data-art="architecture">arch/&lt;id&gt;-architecture.md</div>
+    <div class="dod" data-dod="architecture"></div></div>
+
+  <div class="col"><h2>4. Lập trình <span class="badge b-todo" data-status="development">TODO</span></h2>
+    <div class="art" data-art="development">app/HANDOFF.md</div>
+    <div class="dod" data-dod="development"></div></div>
+
+  <div class="col"><h2>5. Kiểm thử <span class="badge b-todo" data-status="qa">TODO</span></h2>
+    <div class="art" data-art="qa">qa/&lt;id&gt;-test-report.md</div>
+    <div class="dod" data-dod="qa"></div></div>
+
+  <div class="col"><h2>6. Triển khai <span class="badge b-todo" data-status="devops">TODO</span></h2>
+    <div class="art" data-art="devops">infra/&lt;id&gt;-release-notes.md</div>
+    <div class="dod" data-dod="devops"></div></div>
+
+  <div class="col"><h2>7. Vận hành <span class="badge b-todo" data-status="ops">TODO</span></h2>
+    <div class="art" data-art="ops">ops/&lt;id&gt;-incident-log.md</div>
+    <div class="dod" data-dod="ops"></div></div>
+</div>
+
+<footer>Trạng thái: TODO (chưa chạy) · RUNNING (đang chạy) · WAIT (chờ duyệt) · DONE (xong).
+  Bước 2 &amp; 3 chạy song song. File này do lệnh /run-pipeline cập nhật.</footer>
+</body>
+</html>

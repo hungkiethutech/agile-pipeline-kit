@@ -1,0 +1,37 @@
+# Cấu hình dây chuyền — chọn engine (skill/repo) cho từng bước.
+# Mỗi lần chạy một chương trình/dự án, sửa file này để "cắm" engine mong muốn.
+# engine.skill  = tên skill Claude Code (nạp trực tiếp).
+# engine.repo   = repo GitHub tham chiếu (hút phương pháp qua vc-xia / vc-repomix).
+# Có thể để cả hai; agent sẽ dùng skill làm chính, repo làm chuẩn tham chiếu.
+
+project:
+  name: "my-new-project"
+  stack: "nextjs + fastify + postgres(prisma)"   # đổi theo dự án
+  db: "postgres-prisma"                            # postgres-prisma | mysql | mongodb | ...
+
+stages:
+  requirements:                 # Bước 1 — BA
+    skill: deep-research
+    repo: github/spec-kit        # spec-driven; chống vibe-coding
+  design:                       # Bước 2 — UX/UI (chống "vibe code")
+    skill: high-end-visual-design   # gu cao cấp; đổi sang design-taste-frontend / minimalist-ui tùy ý
+    repo: framer/motion             # gạch động; tùy chọn pmndrs/* hoặc aceternity/ui
+  architecture:                 # Bước 3 — Kiến trúc & DB
+    skill: vc-tech-graph            # xuất ERD / sơ đồ kiến trúc
+    repo: prisma/prisma             # + holistics/dbml, treffynnon/sqlstyle.guide, OAI/OpenAPI-Specification
+  development:                  # Bước 4 — Lập trình BE+FE
+    skill: vc-frontend-design
+    repo: goldbergyoni/nodebestpractices   # + airbnb/javascript ; (Superpowers có thể cắm sau)
+  qa:                           # Bước 5 — Kiểm thử ĐỘC LẬP (hộp đen)
+    skill: vc-web-testing
+    repo: goldbergyoni/javascript-testing-best-practices   # + microsoft/playwright
+  devops:                       # Bước 6 — Triển khai
+    skill: ""
+    repo: actions/starter-workflows        # + MichaelCade/90DaysOfDevOps
+  ops:                          # Bước 7 — Vận hành
+    skill: vc-autoresearch
+    repo: upptime/upptime                  # monitoring free trên GitHub Actions
+
+gates:                          # Cổng duyệt của người dùng (dừng chờ "duyệt")
+  - after: requirements         # chốt yêu cầu
+  - before: devops              # chốt trước khi deploy
