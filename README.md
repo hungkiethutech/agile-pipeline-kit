@@ -8,6 +8,9 @@ subscription — **no paid API, no server, no CI cost**.
 
 🇻🇳 Tiếng Việt: see [README.vi.md](./README.vi.md).
 
+![Agile Pipeline status board — 7 stages with per-stage status and Definition-of-Done](./docs/status-board.png)
+*The `status/STATUS.html` board, updated by `/run-pipeline` as a ticket moves through the 7 stages.*
+
 ## ⚡ Quick setup (one command)
 ```bash
 # 1) Clone the kit once

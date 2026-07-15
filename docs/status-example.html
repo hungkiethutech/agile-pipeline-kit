@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agile Pipeline — STATUS (example)</title>
+<style>
+  :root { --bg:#f6f8fa; --card:#fff; --line:#d0d7de; --text:#1f2328; --muted:#636c76;
+          --done:#2ea043; --run:#d29922; --wait:#1f6feb; --todo:#6e7681; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:20px 24px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:18px; }
+  .meta { color:var(--muted); font-size:13px; margin-top:4px; }
+  .board { display:flex; gap:12px; padding:20px; }
+  .col { flex:0 0 214px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
+  .col h2 { font-size:13px; margin:0 0 10px; display:flex; justify-content:space-between; align-items:center; gap:6px; }
+  .badge { font-size:11px; padding:2px 8px; border-radius:999px; color:#fff; white-space:nowrap; }
+  .b-done{background:var(--done)} .b-run{background:var(--run)} .b-wait{background:var(--wait)} .b-todo{background:var(--todo)}
+  .art { font-size:12px; color:var(--muted); margin:6px 0 0; word-break:break-all; }
+  .dod { font-size:12px; margin:8px 0 0; color:var(--text); }
+  footer { padding:12px 24px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Agile Pipeline — Ticket: T001 — User authentication</h1>
+  <div class="meta">Project: acme-app · Updated: 2026-07-15 10:32</div>
+</header>
+<div class="board">
+  <div class="col"><h2>1. Requirements <span class="badge b-done">DONE</span></h2>
+    <div class="art">specs/T001-prd.md</div><div class="dod">DoD ✓ · 6 AC (Given/When/Then)</div></div>
+  <div class="col"><h2>2. Design <span class="badge b-done">DONE</span></h2>
+    <div class="art">design/T001-design-spec.md</div><div class="dod">DoD ✓ · tokens + WCAG AA</div></div>
+  <div class="col"><h2>3. Architecture &amp; DB <span class="badge b-done">DONE</span></h2>
+    <div class="art">arch/T001-architecture.md</div><div class="dod">DoD ✓ · schema + openapi.yaml + ERD</div></div>
+  <div class="col"><h2>4. Development <span class="badge b-done">DONE</span></h2>
+    <div class="art">app/HANDOFF.md</div><div class="dod">DoD ✓ · build ok, 24 unit tests</div></div>
+  <div class="col"><h2>5. QA <span class="badge b-run">RUNNING</span></h2>
+    <div class="art">qa/T001-test-report.md</div><div class="dod">4/6 AC pass · 1 bug (repro)</div></div>
+  <div class="col"><h2>6. Deployment <span class="badge b-todo">TODO</span></h2>
+    <div class="art">infra/T001-release-notes.md</div><div class="dod">waiting: deploy gate</div></div>
+  <div class="col"><h2>7. Operations <span class="badge b-todo">TODO</span></h2>
+    <div class="art">ops/T001-incident-log.md</div><div class="dod"></div></div>
+</div>
+<footer>Status: TODO · RUNNING · WAIT (awaiting approval) · DONE. Stages 2 &amp; 3 run in parallel. Updated by /run-pipeline.</footer>
+</body>
+</html>
