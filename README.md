@@ -82,5 +82,10 @@ APPLY.md                    manual setup guide
   an English translation is planned. Contributions welcome — see
   [CONTRIBUTING.md](./CONTRIBUTING.md).
 
+## Support / Donate
+If this project helps you, consider supporting its development. Once a funding
+handle is configured in [`.github/FUNDING.yml`](./.github/FUNDING.yml), a
+**Sponsor** button appears at the top of this repository. Thank you! 🙏
+
 ## License
 [MIT](./LICENSE) © 2026 Dang Hung Kiet
