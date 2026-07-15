@@ -1,103 +1,103 @@
-# Template Artifact 7 bước (kèm Definition of Done)
+# Artifact templates for the 7 stages (with Definition of Done)
 
-Mỗi đội copy mục tương ứng, điền nội dung, ghi vào thư mục của bước. Phần "DoD" phải tick
-đủ trước khi bàn giao.
+Each team copies the matching section, fills it in, and writes it into its stage folder.
+The "DoD" boxes must all be checked before handoff.
 
 ---
 
 ## 1. PRD — `specs/<id>-prd.md`
 ```markdown
-# PRD — <id> <tên>
-## Mục tiêu & bối cảnh
-## Đối tượng người dùng
-## Phạm vi (In scope / Out of scope)
+# PRD — <id> <name>
+## Goal & context
+## Target users
+## Scope (In scope / Out of scope)
 ## User Stories
-- Là <vai trò>, tôi muốn <gì>, để <lợi ích>.
-## Acceptance Criteria (mỗi mục test được)
-- [ ] GIVEN <bối cảnh> WHEN <hành động> THEN <kết quả kỳ vọng>
-## Yêu cầu phi chức năng
-- Hiệu năng / Bảo mật / Thiết bị / Ngôn ngữ...
-## Câu hỏi mở
+- As a <role>, I want <what>, so that <benefit>.
+## Acceptance Criteria (each must be testable)
+- [ ] GIVEN <context> WHEN <action> THEN <expected result>
+## Non-functional requirements
+- Performance / Security / Devices / i18n...
+## Open questions
 ```
-DoD: mọi yêu cầu có Given/When/Then test được; không còn câu hỏi mở chặn; phạm vi rõ.
+DoD: every requirement has testable Given/When/Then; no blocking open questions; scope explicit.
 
 ---
 
 ## 2. Design Spec — `design/<id>-design-spec.md`
 ```markdown
 # Design Spec — <id>
-## Hướng thẩm mỹ đã chọn (và 2 hướng loại, kèm lý do)
+## Chosen aesthetic direction (+ 2 rejected, with rationale)
 ## Design Tokens
-- Màu / Typography / Spacing / Radius / Shadow
-## Màn hình
-### <Tên màn>: layout, component, trạng thái (default/loading/empty/error)
+- Color / Typography / Spacing / Radius / Shadow
+## Screens
+### <Screen>: layout, components, states (default/loading/empty/error)
 ## Responsive
-## Accessibility (tương phản, focus, kích thước chạm)
+## Accessibility (contrast, focus, touch targets)
 ```
-DoD: hướng thẩm mỹ không generic; có tokens; mỗi màn có trạng thái; có responsive + a11y.
+DoD: non-generic aesthetic; tokens present; each screen has states; responsive + a11y included.
 
 ---
 
 ## 3. Architecture — `arch/<id>-architecture.md` (+ schema, openapi.yaml, erd)
 ```markdown
 # Architecture — <id>
-## Tổng quan hệ thống (sơ đồ)
-## Mô hình dữ liệu (bảng/model, quan hệ, index)
-## Hợp đồng API (tóm tắt; chi tiết ở openapi.yaml)
-## ADR — Quyết định kiến trúc & lý do
+## System overview (diagram)
+## Data model (tables/models, relations, indexes)
+## API contract (summary; details in openapi.yaml)
+## ADR — architecture decisions & rationale
 ```
-Kèm: `arch/schema.(prisma|dbml|sql)`, `arch/openapi.yaml`, `arch/erd.(svg|md)`.
-DoD: schema chuẩn hóa + index + migration-ready; ERD xuất được; openapi đủ endpoint + mã lỗi.
+Plus: `arch/schema.(prisma|dbml|sql)`, `arch/openapi.yaml`, `arch/erd.(svg|md)`.
+DoD: normalized schema + indexes + migration-ready; ERD exported; openapi complete (endpoints + error codes).
 
 ---
 
 ## 4. Dev Handoff — `app/HANDOFF.md`
 ```markdown
 # HANDOFF — <id>
-## Cách chạy (cài đặt, biến môi trường [chỉ tên], lệnh dev/build)
-## Cấu trúc thư mục
-## Ánh xạ API đã hiện thực ↔ openapi.yaml
-## Ánh xạ màn hình ↔ design spec
-## Test đơn vị (chạy sao, phủ gì)
-## Vướng mắc / lệch hợp đồng (nếu có)
+## How to run (setup, env vars [names only], dev/build commands)
+## Folder structure
+## Implemented API ↔ openapi.yaml mapping
+## Screens ↔ design spec mapping
+## Unit tests (how to run, what's covered)
+## Blockers / contract mismatches (if any)
 ```
-DoD: build/typecheck sạch; khớp openapi + design; có test logic chính; người ngoài chạy được.
+DoD: build/typecheck clean; matches openapi + design; unit tests for core logic; an outsider can run it.
 
 ---
 
 ## 5. Test Report — `qa/<id>-test-report.md` (+ bugs.md)
 ```markdown
 # Test Report — <id>
-## Môi trường test (URL app, thiết bị/trình duyệt)
-## Kết quả theo Acceptance Criteria
-- [ ] AC1: PASS/FAIL — ghi chú
-## Edge case đã thử (12 chiều)
-## Kiểm bảo mật cơ bản
-## Kết luận: ĐẠT / KHÔNG ĐẠT
+## Test environment (app URL, device/browser)
+## Results per Acceptance Criteria
+- [ ] AC1: PASS/FAIL — note
+## Edge cases tried (12 dimensions)
+## Basic security checks
+## Verdict: PASS / FAIL
 ```
-`qa/<id>-bugs.md`: mỗi bug = mô tả + BƯỚC TÁI HIỆN + kỳ vọng vs thực tế + mức độ.
-DoD: mọi AC bấm thử qua UI thật; có edge case + bảo mật; bug có repro.
+`qa/<id>-bugs.md`: each bug = description + REPRODUCTION STEPS + expected vs actual + severity.
+DoD: every AC exercised through the real UI; edge cases + security checked; bugs have repro.
 
 ---
 
 ## 6. Release Notes — `infra/<id>-release-notes.md`
 ```markdown
 # Release Notes — <id>
-## Phiên bản / ngày
-## Thay đổi
-## Biến môi trường cần thiết (chỉ tên)
-## Cách deploy (pipeline) + đường rollback
+## Version / date
+## Changes
+## Required environment variables (names only)
+## Deploy steps (pipeline) + rollback path
 ```
-DoD: pipeline tái lập; env đầy đủ (tên); có rollback.
+DoD: reproducible pipeline; full env list (names); rollback documented.
 
 ---
 
 ## 7. Incident Log — `ops/<id>-incident-log.md`
 ```markdown
 # Incident Log — <id>
-## Giám sát (công cụ, URL, metric theo dõi)
-## Sự cố
-- Thời gian | Mô tả | Ảnh hưởng | Xử lý | Ticket sinh ra
-## Đề xuất cải tiến → ticket mới
+## Monitoring (tool, URL, metrics tracked)
+## Incidents
+- Time | Description | Impact | Resolution | Ticket created
+## Improvement proposals → new tickets
 ```
-DoD: có giám sát uptime free; có metric; sự cố/cải tiến thành ticket mới (đóng vòng lặp).
+DoD: free uptime monitoring; metrics defined; incidents/improvements turned into new tickets (loop closed).

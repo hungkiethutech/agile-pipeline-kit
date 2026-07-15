@@ -77,10 +77,10 @@ APPLY.md                    manual setup guide
 5. Open `status/STATUS.html` in a browser to track progress.
 
 ## Status & roadmap
-- **v0.1 (current):** framework skeleton is complete and usable.
-- Internal agent prompts and templates are currently written in **Vietnamese**;
-  an English translation is planned. Contributions welcome — see
-  [CONTRIBUTING.md](./CONTRIBUTING.md).
+- **v0.1.0 (current):** framework is complete and usable; docs, agents, and templates
+  are in English (Vietnamese README available at [README.vi.md](./README.vi.md)).
+- Next: register with `vc-setup` for one-command scaffolding; add worked example runs.
+- Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## Support / Donate
 If this project helps you, consider supporting its development. Once a funding

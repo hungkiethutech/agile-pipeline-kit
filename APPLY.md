@@ -1,16 +1,17 @@
-# Áp dụng Agile Pipeline Kit vào một DỰ ÁN MỚI
+# Apply Agile Pipeline Kit to a NEW project
 
-Toàn bộ chạy trong Claude Code, free (subscription). Làm 1 lần cho mỗi dự án mới.
+Everything runs inside Claude Code, free (subscription). Do this once per new project.
+For the one-command version, see `init.sh` in the README.
 
-## Bước A — Tạo dự án mới + cấu trúc thư mục
+## Step A — Create the new project + folders
 ```bash
 mkdir my-new-project && cd my-new-project
 git init
 mkdir -p specs design arch app qa infra ops tickets status .claude/agents .claude/commands
 ```
 
-## Bước B — Copy kit vào dự án
-Từ thư mục `agile-pipeline-kit/` của kit:
+## Step B — Copy the kit into the project
+From the kit's `agile-pipeline-kit/` directory:
 ```bash
 cp agile-pipeline-kit/agents/*.md            my-new-project/.claude/agents/
 cp agile-pipeline-kit/commands/run-pipeline.md my-new-project/.claude/commands/
@@ -19,45 +20,47 @@ cp -r agile-pipeline-kit/catalog             my-new-project/
 cp -r agile-pipeline-kit/templates           my-new-project/
 cp agile-pipeline-kit/status/STATUS.template.html my-new-project/status/STATUS.html
 ```
-(Cách nhanh hơn: dùng skill `vc-setup` để scaffold — xem Bước F.)
+(Faster: run `init.sh` — see the README "Quick setup".)
 
-## Bước C — Cấu hình engine cho dự án
-Mở `pipeline.config.yml`, sửa:
+## Step C — Configure engines for the project
+Open `pipeline.config.yml` and set:
 - `project.name`, `project.stack`, `project.db`
-- `stages.*.skill` / `stages.*.repo` — chọn engine mong muốn cho từng bước
-  (tham khảo `catalog/engines.md`).
+- `stages.*.skill` / `stages.*.repo` — pick the engine for each stage
+  (see `catalog/engines.md`).
 
-## Bước D — Tạo ticket đầu tiên
-Tạo file `tickets/T001.md`:
+## Step D — Create the first ticket
+Create `tickets/T001.md`:
 ```markdown
-# T001 - <tên tính năng>
-## Mô tả
-<mô tả yêu cầu bằng lời>
-## Ràng buộc
-<nếu có>
-## Trạng thái: NEW   (NEW -> stage1..stage7 -> DONE)
+# T001 - <feature name>
+## Description
+<the requirement, in plain words>
+## Constraints
+<if any>
+## Status: NEW   (NEW -> stage1..stage7 -> DONE)
 ```
 
-## Bước E — Chạy dây chuyền (trong Claude Code)
-Mở Claude Code tại thư mục dự án, gõ:
+## Step E — Run the pipeline (in Claude Code)
+Open Claude Code in the project directory and run:
 ```
 /run-pipeline T001
 ```
-Orchestrator sẽ:
-1. Đọc `pipeline.config.yml` + ticket.
-2. Chạy lần lượt 7 đội (bước 2 & 3 song song), mỗi đội ghi artifact vào thư mục của nó.
-3. DỪNG ở 2 cổng duyệt: sau bước 1 (chốt yêu cầu) và trước bước 6 (chốt deploy) —
-   anh xem artifact, gõ "duyệt" để đi tiếp, hoặc "sửa lại: ..." để trả về đội đó.
-4. Cập nhật `status/STATUS.html` sau mỗi bước.
+The orchestrator will:
+1. Read `pipeline.config.yml` + the ticket.
+2. Run the 7 teams in order (stages 2 & 3 in parallel), each writing its artifact.
+3. PAUSE at 2 human gates: after stage 1 (approve requirements) and before stage 6
+   (approve deploy) — review the artifact, type "approve" to continue, or
+   "revise: ..." to send it back to that team.
+4. Update `status/STATUS.html` after each stage.
 
-Mở `status/STATUS.html` bằng trình duyệt để theo dõi.
+Open `status/STATUS.html` in a browser to track progress.
 
-## Bước F — (Tùy chọn) biến kit thành scaffold tái dùng
-Đăng ký kit vào skill `vc-setup` để lần sau chỉ cần 1 lệnh scaffold toàn bộ cấu trúc +
-agent + config vào dự án mới, thay cho copy tay ở Bước B. (Phase tiếp theo sẽ móc nối.)
+## Step F — (Optional) turn the kit into a reusable scaffold
+Register the kit with the `vc-setup` skill so a single command scaffolds the whole
+structure + agents + config into a new project, instead of the manual copy in Step B.
+(Planned for a future phase.)
 
-## Ghi chú độc lập (quan trọng)
-- Mỗi đội là subagent context riêng — không thấy nội bộ đội khác.
-- Đội QA (bước 5) KHÔNG đọc thư mục `app/` theo kiểu diễn giải source; nó chạy app + đọc
-  `specs/` (acceptance criteria) và test như người dùng thật.
-- Đội Dev (bước 4) code theo `arch/schema.*` + `arch/openapi.yaml`, không tự bịa.
+## Independence notes (important)
+- Each team is a separate subagent with an isolated context — it does not see the internals of others.
+- The QA team (stage 5) does NOT read `app/` source; it runs the app and reads `specs/`
+  (acceptance criteria) and tests like a real user.
+- The Dev team (stage 4) builds to `arch/schema.*` + `arch/openapi.yaml`, not its own invention.

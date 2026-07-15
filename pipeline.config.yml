@@ -1,37 +1,37 @@
-# Cấu hình dây chuyền — chọn engine (skill/repo) cho từng bước.
-# Mỗi lần chạy một chương trình/dự án, sửa file này để "cắm" engine mong muốn.
-# engine.skill  = tên skill Claude Code (nạp trực tiếp).
-# engine.repo   = repo GitHub tham chiếu (hút phương pháp qua vc-xia / vc-repomix).
-# Có thể để cả hai; agent sẽ dùng skill làm chính, repo làm chuẩn tham chiếu.
+# Pipeline config — choose the engine (skill/repo) for each stage.
+# Edit this per program/project to "plug in" the engine you want.
+# engine.skill  = a Claude Code skill name (loaded directly).
+# engine.repo   = a GitHub repo reference (method pulled via vc-xia / vc-repomix).
+# You may set both; the agent uses the skill as primary and the repo as reference standard.
 
 project:
   name: "my-new-project"
-  stack: "nextjs + fastify + postgres(prisma)"   # đổi theo dự án
+  stack: "nextjs + fastify + postgres(prisma)"   # change per project
   db: "postgres-prisma"                            # postgres-prisma | mysql | mongodb | ...
 
 stages:
-  requirements:                 # Bước 1 — BA
+  requirements:                 # Stage 1 — BA
     skill: deep-research
-    repo: github/spec-kit        # spec-driven; chống vibe-coding
-  design:                       # Bước 2 — UX/UI (chống "vibe code")
-    skill: high-end-visual-design   # gu cao cấp; đổi sang design-taste-frontend / minimalist-ui tùy ý
-    repo: framer/motion             # gạch động; tùy chọn pmndrs/* hoặc aceternity/ui
-  architecture:                 # Bước 3 — Kiến trúc & DB
-    skill: vc-tech-graph            # xuất ERD / sơ đồ kiến trúc
+    repo: github/spec-kit        # spec-driven; anti vibe-coding
+  design:                       # Stage 2 — UX/UI (anti "AI slop")
+    skill: high-end-visual-design   # taste; swap for design-taste-frontend / minimalist-ui
+    repo: framer/motion             # animation building block; optional pmndrs/* or aceternity/ui
+  architecture:                 # Stage 3 — Architecture & DB
+    skill: vc-tech-graph            # export ERD / architecture diagrams
     repo: prisma/prisma             # + holistics/dbml, treffynnon/sqlstyle.guide, OAI/OpenAPI-Specification
-  development:                  # Bước 4 — Lập trình BE+FE
+  development:                  # Stage 4 — Development BE+FE
     skill: vc-frontend-design
-    repo: goldbergyoni/nodebestpractices   # + airbnb/javascript ; (Superpowers có thể cắm sau)
-  qa:                           # Bước 5 — Kiểm thử ĐỘC LẬP (hộp đen)
+    repo: goldbergyoni/nodebestpractices   # + airbnb/javascript ; (Superpowers can be plugged in later)
+  qa:                           # Stage 5 — INDEPENDENT QA (black-box)
     skill: vc-web-testing
     repo: goldbergyoni/javascript-testing-best-practices   # + microsoft/playwright
-  devops:                       # Bước 6 — Triển khai
+  devops:                       # Stage 6 — Deployment
     skill: ""
     repo: actions/starter-workflows        # + MichaelCade/90DaysOfDevOps
-  ops:                          # Bước 7 — Vận hành
+  ops:                          # Stage 7 — Operations
     skill: vc-autoresearch
-    repo: upptime/upptime                  # monitoring free trên GitHub Actions
+    repo: upptime/upptime                  # free monitoring on GitHub Actions
 
-gates:                          # Cổng duyệt của người dùng (dừng chờ "duyệt")
-  - after: requirements         # chốt yêu cầu
-  - before: devops              # chốt trước khi deploy
+gates:                          # Human approval gates (pause and wait for "approve")
+  - after: requirements         # approve requirements
+  - before: devops              # approve before deploy

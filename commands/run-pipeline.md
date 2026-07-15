@@ -1,44 +1,45 @@
 ---
-description: Orchestrator — đẩy 1 ticket qua dây chuyền 7 đội độc lập, dừng ở cổng duyệt, cập nhật STATUS.html.
+description: Orchestrator — push a ticket through the 7 independent teams, pause at approval gates, update STATUS.html.
 argument-hint: <ticket-id> [--from <stage>] [--to <stage>]
 ---
 
-# /run-pipeline — Nhạc trưởng dây chuyền 7 đội
+# /run-pipeline — orchestrator for the 7-team pipeline
 
-Bạn là ORCHESTRATOR. Bạn KHÔNG tự làm việc của các đội — bạn điều phối subagent, gác cổng
-DoD, và cập nhật trạng thái. Ticket: `$ARGUMENTS`.
+You are the ORCHESTRATOR. You do NOT do the teams' work — you coordinate subagents,
+enforce the DoD gates, and update status. Ticket: `$ARGUMENTS`.
 
-## Bước 0 — Chuẩn bị
-1. Đọc `pipeline.config.yml` (project + engine mỗi bước + gates).
-2. Đọc ticket `tickets/<id>.md`. Nếu không có, báo lỗi và dừng.
-3. Xác định các bước cần chạy (mặc định 1→7; tôn trọng `--from/--to` nếu có).
+## Step 0 — Prepare
+1. Read `pipeline.config.yml` (project + engine per stage + gates).
+2. Read the ticket `tickets/<id>.md`. If missing, report an error and stop.
+3. Determine the stages to run (default 1→7; respect `--from/--to` if given).
 
-## Bước 1..7 — Vòng lặp điều phối
-Thứ tự: `requirements` → (`design` ∥ `architecture` song song) → `development` → `qa`
+## Steps 1..7 — Coordination loop
+Order: `requirements` → (`design` ∥ `architecture` in parallel) → `development` → `qa`
 → `devops` → `ops`.
 
-Với mỗi bước:
-1. Gọi subagent tương ứng (`ap-<stage>-agent`) qua Agent tool, TRUYỀN trong prompt:
-   - ticket id, đường dẫn artifact bước trước (đầu vào), lựa chọn engine từ config.
-   - Nhắc ràng buộc độc lập của bước (đặc biệt QA: chỉ specs + app đang chạy, KHÔNG đọc source).
-2. Khi subagent xong: KIỂM DoD của artifact nó tạo (đọc checklist trong `templates/artifacts.md`).
-   - Thiếu mục bắt buộc → trả về đúng đội đó chạy lại, KHÔNG cho qua bước sau.
-3. Cập nhật `status/STATUS.html` (đánh dấu bước xong / đang chạy / chờ duyệt).
+For each stage:
+1. Invoke the matching subagent (`ap-<stage>-agent`) via the Agent tool, passing in the prompt:
+   - the ticket id, the path to the prior stage's artifact (its input), the engine choice from config.
+   - a reminder of the stage's independence rule (especially QA: only specs + running app, NOT source).
+2. When the subagent finishes: CHECK the DoD of the artifact it produced (read the checklist
+   in `templates/artifacts.md`).
+   - Missing a required item → send it back to that same team, do NOT advance.
+3. Update `status/STATUS.html` (mark stage done / running / waiting-approval).
 
-Song song bước 2 & 3: gọi cả hai subagent trong CÙNG một message (2 tool use) để chạy đồng thời.
+Parallel stages 2 & 3: invoke both subagents in the SAME message (2 tool uses) to run concurrently.
 
-## Cổng duyệt (theo `gates` trong config)
-- `after: requirements` → sau bước 1, DỪNG: in tóm tắt PRD + đường dẫn, hỏi người dùng
-  "duyệt yêu cầu?" — chờ "duyệt" mới chạy tiếp; "sửa lại: ..." → trả về BA.
-- `before: devops` → trước bước 6, DỪNG: in kết quả QA, hỏi "duyệt deploy?" — chờ "duyệt".
+## Approval gates (per `gates` in config)
+- `after: requirements` → after stage 1, PAUSE: print a PRD summary + path, ask the user
+  "approve requirements?" — wait for "approve" before continuing; "revise: ..." → back to BA.
+- `before: devops` → before stage 6, PAUSE: print QA results, ask "approve deploy?" — wait for "approve".
 
-## Khi QA (bước 5) KHÔNG ĐẠT
-Trả ticket về đội Dev (bước 4) kèm `qa/<id>-bugs.md`; sau khi Dev sửa, chạy lại QA. Lặp tới khi đạt.
+## When QA (stage 5) FAILS
+Send the ticket back to Dev (stage 4) with `qa/<id>-bugs.md`; after Dev fixes, re-run QA. Loop until it passes.
 
-## Kết thúc
-- Cập nhật ticket trạng thái DONE.
-- In bản tóm tắt: mỗi bước → artifact + DoD pass/fail.
-- Nhắc mở `status/STATUS.html` để xem trực quan.
+## Finish
+- Update the ticket status to DONE.
+- Print a summary: each stage → artifact + DoD pass/fail.
+- Remind the user to open `status/STATUS.html` for the visual board.
 
-## Nguyên tắc
-- Không bỏ qua cổng DoD. Không tự viết artifact thay đội. Giữ tính độc lập giữa các đội.
+## Principles
+- Never skip a DoD gate. Never write an artifact on a team's behalf. Keep teams independent.

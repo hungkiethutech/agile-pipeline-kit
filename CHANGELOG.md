@@ -16,7 +16,4 @@ All notable changes to this project are documented here. This project adheres to
 - `/run-pipeline` orchestrator command and `STATUS.html` Kanban board.
 - Open-source project files: MIT LICENSE, English + Vietnamese README,
   CONTRIBUTING, CODE_OF_CONDUCT, SECURITY policy, issue/PR templates.
-
-### Known limitations
-- Internal agent prompts and artifact templates are currently written in Vietnamese;
-  an English translation is in progress.
+- All docs, agent prompts, and templates in English (Vietnamese README kept as README.vi.md).
