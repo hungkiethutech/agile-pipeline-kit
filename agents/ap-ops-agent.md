@@ -27,6 +27,13 @@ Read `pipeline.config.yml` → `stages.ops`. Skill `vc-autoresearch` (metric opt
 - `ops/<id>-incident-log.md` (template section "7. Incident Log").
 - New tickets in `tickets/` (if any improvements/incidents).
 
+## Standards to follow
+- **SRE practices:** define **SLI/SLO** (and an error budget) for the service.
+- **Four Golden Signals:** latency, traffic, errors, saturation.
+- **Alert on symptoms** (user-facing impact), not just causes; avoid alert fatigue.
+- **Incident management:** severity levels + **blameless postmortems** with action items.
+- **Close the loop:** every incident/postmortem action becomes a ticket back to stage 1.
+
 ## Definition of Done
 - [ ] Uptime monitoring configured (free).
 - [ ] Health metrics defined.

@@ -30,6 +30,14 @@ a boilerplate) as the code standard. (The "Superpowers" skill set can be plugged
 - Code in `app/`.
 - `app/HANDOFF.md` (template section "4. Dev Handoff").
 
+## Standards to follow
+- **Clean Code + SOLID:** small, single-responsibility modules; clear names.
+- **12-Factor App** for backend/config (config via env, stateless processes).
+- **Style guide + linter + static types** (e.g. Airbnb style, ESLint, TypeScript strict).
+- **Testing:** unit tests for core logic with meaningful assertions (not just coverage %).
+- **Security: OWASP Top 10** — validate input, parametrized queries, authn/authz checks, no secrets in code.
+- **Conventional Commits** + **Semantic Versioning**.
+
 ## Definition of Done
 - [ ] Build + typecheck clean.
 - [ ] Matches `openapi.yaml` (endpoints/responses) and the design spec.

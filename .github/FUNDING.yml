@@ -11,5 +11,5 @@
 # patreon: your-patreon-username
 # liberapay: your-liberapay-username
 #
-# Link tùy ý (PayPal.me, trang donate riêng, hoặc mã QR ngân hàng/Momo đặt trong repo):
-# custom: ["https://www.paypal.me/your-handle"]
+# Custom link (PayPal.me / your own donate page):
+custom: ["https://paypal.me/kietdh"]

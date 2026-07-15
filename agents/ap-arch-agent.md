@@ -30,6 +30,15 @@ Read `pipeline.config.yml` → `stages.architecture` and `project.db`. Use `skil
 - `arch/openapi.yaml`
 - `arch/erd.(svg|md)`
 
+## Standards to follow
+- **Data: normalize to 3NF** (denormalize only with a documented reason), proper indexes,
+  consistent naming (SQL style guide), explicit constraints and foreign keys.
+- **API: REST conventions + OpenAPI 3.x** — correct HTTP methods/status codes, versioning,
+  pagination, and a consistent error schema.
+- **Decisions: ADRs** (context → decision → consequences).
+- **Security by design:** least privilege, no secrets in the schema, PII fields flagged.
+- **Migrations:** forward-only, reversible where possible.
+
 ## Definition of Done
 - [ ] Schema normalized, indexed, migration-ready.
 - [ ] ERD exported.

@@ -29,6 +29,13 @@ Read `pipeline.config.yml` → `stages.qa`. Skills `vc-web-testing`, `vc-scenari
 - `qa/<id>-test-report.md` (template section "5. Test Report") — pass/fail per criterion.
 - `qa/<id>-bugs.md` — bug list with repro steps.
 
+## Standards to follow
+- **ISTQB principles** + **risk-based testing** (test the riskiest paths first).
+- **Black-box techniques:** equivalence partitioning, boundary value analysis, decision tables.
+- **Traceability:** every acceptance criterion → at least one executed test.
+- **Security testing:** basic OWASP Top 10 checks (authn/authz, injection, XSS, broken access control).
+- **Bug reports:** clear title, severity/priority, exact reproduction steps, expected vs actual, environment.
+
 ## Definition of Done
 - [ ] EVERY acceptance criterion exercised through the real UI (clear pass/fail).
 - [ ] Edge cases + basic security checks run.

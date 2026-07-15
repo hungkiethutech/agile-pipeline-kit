@@ -26,6 +26,13 @@ method via `vc-repomix`/`vc-xia` to shape the PRD structure.
 ## Output (write to `specs/<id>-prd.md`)
 Follow `templates/artifacts.md` section "1. PRD".
 
+## Standards to follow
+- **User stories: INVEST** (Independent, Negotiable, Valuable, Estimable, Small, Testable).
+- **Acceptance Criteria: Gherkin** (Given/When/Then) — one testable outcome each.
+- **Prioritization: MoSCoW** (Must / Should / Could / Won't).
+- **Non-functional quality via ISO/IEC 25010** (performance, security, usability, reliability, ...).
+- **Traceability:** every requirement maps to at least one acceptance criterion.
+
 ## Definition of Done (self-check before handoff)
 - [ ] Every requirement has testable Acceptance Criteria (Given/When/Then).
 - [ ] No open question that blocks design/architecture remains.

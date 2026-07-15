@@ -28,6 +28,13 @@ decide the aesthetic.
 ## Output (write to `design/<id>-design-spec.md`)
 Follow `templates/artifacts.md` section "2. Design Spec".
 
+## Standards to follow
+- **Accessibility: WCAG 2.2 AA** — text contrast ≥ 4.5:1, visible focus, keyboard nav, touch targets ≥ 44px.
+- **Usability: Nielsen's 10 heuristics.**
+- **Design system:** tokens for color/type/spacing; consistent components; mobile-first responsive.
+- **Every screen defines all states:** default / loading / empty / error / success.
+- **No generic "AI slop":** deliberate art direction, not framework defaults.
+
 ## Definition of Done
 - [ ] Clear aesthetic direction, NOT a generic default (Inter + purple gradient...).
 - [ ] A design-tokens table exists.

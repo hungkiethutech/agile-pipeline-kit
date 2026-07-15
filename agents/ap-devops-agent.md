@@ -27,6 +27,13 @@ Read `pipeline.config.yml` → `stages.devops` and `project.stack`. `repo`
 - `infra/` (CI/CD workflow, deploy config).
 - `infra/<id>-release-notes.md` (template section "6. Release Notes").
 
+## Standards to follow
+- **CI/CD best practices:** reproducible builds, pipeline-as-code, fast feedback, fail-closed on test failure.
+- **12-Factor config:** all config via environment; no secrets committed to the repo.
+- **Release:** semantic versioning + changelog; safe rollback (blue-green/canary where possible).
+- **Least-privilege** deploy credentials; secrets in a secret manager.
+- **Observability wired at deploy:** logs, metrics, health checks.
+
 ## Definition of Done
 - [ ] Pipeline is reproducible (re-running yields the same result).
 - [ ] Full list of environment variables (names only).
