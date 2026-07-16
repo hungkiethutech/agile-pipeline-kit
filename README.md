@@ -1,5 +1,10 @@
 # Agile Pipeline Kit
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Release](https://img.shields.io/github/v/release/hungkiethutech/agile-pipeline-kit)](https://github.com/hungkiethutech/agile-pipeline-kit/releases)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Runs in Claude Code](https://img.shields.io/badge/runs%20in-Claude%20Code-8A2BE2.svg)](https://claude.com/claude-code)
+
 > A free, Claude-Code-native Agile software delivery pipeline: **8 independent
 > agent "teams"** that hand off work by contract — like outsourcing to real teams.
 
@@ -59,6 +64,27 @@ chosen per run in `pipeline.config.yml` (see [`catalog/engines.md`](./catalog/en
 Examples: `github/spec-kit` for requirements, a taste/design skill for UX,
 `prisma/prisma` + OpenAPI for architecture, `microsoft/playwright` for QA,
 `upptime/upptime` for free monitoring.
+
+## Why this kit / when to use it
+Most AI-coding tools make **one** agent code well. This kit instead runs a **pipeline of
+independent specialist teams** that hand off by contract — so you get separation of duties:
+an independent black-box QA team, a dedicated security/pentest gate, and a Dev team that
+builds strictly to the architect's schema + API contract. Use it when you want your AI
+delivery to feel like an outsourced, standards-driven software team rather than a single
+"do-everything" agent.
+
+| | **Agile Pipeline Kit** | Single coding agent | spec-kit | Superpowers |
+|---|---|---|---|---|
+| Model | 8 independent teams, contract handoff | one agent | spec→plan→tasks (one agent) | skills library + TDD |
+| Independent black-box QA | ✅ | ❌ | ❌ | ❌ |
+| Security / pentest gate (OWASP Top 10:2025) | ✅ | ❌ | ❌ | partial |
+| Pluggable engine per stage (skill or GitHub repo) | ✅ | ❌ | ❌ | ❌ |
+| Runs free in Claude Code (no paid API) | ✅ | ✅ | ✅ | ✅ |
+
+Complementary, not competing: you can plug `github/spec-kit` into stage 1 and Superpowers
+skills into stages 4–5 via `pipeline.config.yml`.
+
+See a full illustrative run in [`examples/`](./examples/README.md).
 
 ## Contents
 ```
