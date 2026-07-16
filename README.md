@@ -1,6 +1,6 @@
 # Agile Pipeline Kit
 
-> A free, Claude-Code-native Agile software delivery pipeline: **7 independent
+> A free, Claude-Code-native Agile software delivery pipeline: **8 independent
 > agent "teams"** that hand off work by contract — like outsourcing to real teams.
 
 Runs entirely inside [Claude Code](https://claude.com/claude-code) on your
@@ -19,7 +19,7 @@ git clone https://github.com/hungkiethutech/agile-pipeline-kit.git ~/.agile-kit
 # 2) Scaffold any new project with a single command
 bash ~/.agile-kit/init.sh ~/path/to/new-project
 ```
-`init.sh` creates the folder structure and copies the 7 agents, the orchestrator
+`init.sh` creates the folder structure and copies the 8 agents, the orchestrator
 command, config, catalog, templates, a status board, and a sample ticket into your
 project. Then edit `pipeline.config.yml`, edit `tickets/T001.md`, open Claude Code
 in the project and run `/run-pipeline T001`.

@@ -46,7 +46,7 @@ Open Claude Code in the project directory and run:
 ```
 The orchestrator will:
 1. Read `pipeline.config.yml` + the ticket.
-2. Run the 7 teams in order (stages 2 & 3 in parallel), each writing its artifact.
+2. Run the 8 teams in order (stages 2 & 3 in parallel), each writing its artifact.
 3. PAUSE at 2 human gates: after stage 1 (approve requirements) and before stage 6
    (approve deploy) — review the artifact, type "approve" to continue, or
    "revise: ..." to send it back to that team.

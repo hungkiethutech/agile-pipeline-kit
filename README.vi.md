@@ -1,6 +1,6 @@
 # Agile Pipeline Kit (Tiếng Việt)
 
-Dây chuyền phát triển phần mềm Agile gồm **7 đội độc lập**, mỗi đội là một subagent
+Dây chuyền phát triển phần mềm Agile gồm **8 đội độc lập**, mỗi đội là một subagent
 riêng (context cách ly, như thuê team ngoài). Chạy 100% trong Claude Code bằng gói
 subscription — **không** dùng API trả phí, **không** cần server/CI trả phí.
 

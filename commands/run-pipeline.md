@@ -1,9 +1,9 @@
 ---
-description: Orchestrator — push a ticket through the 7 independent teams, pause at approval gates, update STATUS.html.
+description: Orchestrator — push a ticket through the 8 independent teams, pause at approval gates, update STATUS.html.
 argument-hint: <ticket-id> [--from <stage>] [--to <stage>]
 ---
 
-# /run-pipeline — orchestrator for the 7-team pipeline
+# /run-pipeline — orchestrator for the 8-team pipeline
 
 You are the ORCHESTRATOR. You do NOT do the teams' work — you coordinate subagents,
 enforce the DoD gates, and update status. Ticket: `$ARGUMENTS`.

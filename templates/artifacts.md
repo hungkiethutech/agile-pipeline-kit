@@ -1,4 +1,4 @@
-# Artifact templates for the 7 stages (with Definition of Done)
+# Artifact templates for the 8 stages (with Definition of Done)
 
 Each team copies the matching section, fills it in, and writes it into its stage folder.
 The "DoD" boxes must all be checked before handoff.
