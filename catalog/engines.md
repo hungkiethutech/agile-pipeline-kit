@@ -34,12 +34,19 @@ Change your choices in `pipeline.config.yml`.
 - Repo: `microsoft/playwright`, `goldbergyoni/javascript-testing-best-practices`
 - Goal: test like a real user against acceptance criteria, WITHOUT reading source; bugs with repro.
 
-## Stage 6 — Deployment (DevOps)
+## Stage 6 — Security / Pentest (independent)
+- Skill: `vc-security` (STRIDE + OWASP)
+- Repo: `OWASP/Top10`, `OWASP/wstg` (Web Security Testing Guide), `OWASP/CheatSheetSeries`,
+  `zaproxy/zaproxy` (OWASP ZAP)
+- Goal: black-box pentest of the running app against OWASP Top 10; findings with CVSS
+  severity + reproduction + remediation; High/Critical blocks deploy.
+
+## Stage 7 — Deployment (DevOps)
 - Skill: (usually none)
 - Repo: `actions/starter-workflows` (CI templates), `MichaelCade/90DaysOfDevOps`
 - Goal: reproducible pipeline + deploy to Vercel/Render (free) + release notes + rollback.
 
-## Stage 7 — Operations (SRE)
+## Stage 8 — Operations (SRE)
 - Skill: `vc-autoresearch` (metric optimization)
 - Repo: `upptime/upptime` (free monitoring on GitHub Actions), `dastergon/awesome-sre`
 - Goal: monitoring live + incident log + improvement tickets back to stage 1.

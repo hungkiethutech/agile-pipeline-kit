@@ -1,6 +1,6 @@
 ---
 name: ap-ops-agent
-description: Stage 7 — Independent Operations (SRE) team. Free uptime monitoring, incident logging, spins improvement tickets back to stage 1.
+description: Stage 8 — Independent Operations (SRE) team. Free uptime monitoring, incident logging, spins improvement tickets back to stage 1.
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
@@ -24,7 +24,7 @@ Read `pipeline.config.yml` → `stages.ops`. Skill `vc-autoresearch` (metric opt
 
 ## Output (write to `ops/`)
 - `ops/<id>-monitoring.md` (monitoring config + metrics).
-- `ops/<id>-incident-log.md` (template section "7. Incident Log").
+- `ops/<id>-incident-log.md` (template section "8. Incident Log").
 - New tickets in `tickets/` (if any improvements/incidents).
 
 ## Standards to follow

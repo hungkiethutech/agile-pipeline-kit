@@ -8,7 +8,7 @@ subscription — **no paid API, no server, no CI cost**.
 
 🇻🇳 Tiếng Việt: see [README.vi.md](./README.vi.md).
 
-![Agile Pipeline status board — 7 stages with per-stage status and Definition-of-Done](./docs/status-board.png)
+![Agile Pipeline status board — 8 stages with per-stage status and Definition-of-Done](./docs/status-board.png)
 *The `status/STATUS.html` board, updated by `/run-pipeline` as a ticket moves through the 7 stages.*
 
 ## ⚡ Quick setup (one command)
@@ -38,7 +38,7 @@ in the project and run `/run-pipeline T001`.
 - **Dev builds to contract** — implements against the architect's `schema` +
   `openapi.yaml`, never inventing its own.
 
-## The 7 stages
+## The 8 stages
 | # | Stage | Folder | Subagent |
 |---|---|---|---|
 | 1 | Requirements (BA) | `specs/` | `ap-ba-agent` |
@@ -46,8 +46,9 @@ in the project and run `/run-pipeline T001`.
 | 3 | Architecture & DB | `arch/` | `ap-arch-agent` |
 | 4 | Development (BE+FE) | `app/` | `ap-dev-agent` |
 | 5 | QA (black-box) | `qa/` | `ap-qa-agent` |
-| 6 | Deployment (DevOps) | `infra/` | `ap-devops-agent` |
-| 7 | Operations (SRE) | `ops/` | `ap-ops-agent` |
+| 6 | Security / Pentest (OWASP Top 10) | `security/` | `ap-security-agent` |
+| 7 | Deployment (DevOps) | `infra/` | `ap-devops-agent` |
+| 8 | Operations (SRE) | `ops/` | `ap-ops-agent` |
 
 Stages 2 and 3 run **in parallel** (both depend only on the PRD from stage 1),
 then both feed stage 4.
@@ -84,11 +85,6 @@ APPLY.md                    manual setup guide
   are in English (Vietnamese README available at [README.vi.md](./README.vi.md)).
 - Next: register with `vc-setup` for one-command scaffolding; add worked example runs.
 - Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-## Support / Donate
-If this project helps you, consider supporting its development:
-**[paypal.me/kietdh](https://paypal.me/kietdh)** — thank you! 🙏
-(A **Sponsor** button also appears at the top of the repository.)
 
 ## License
 [MIT](./LICENSE) © 2026 Dang Hung Kiet

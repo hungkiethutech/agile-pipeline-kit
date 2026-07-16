@@ -3,6 +3,11 @@
 All notable changes to this project are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-07-15
+### Added
+- Stage 6: independent **Security / Penetration Testing** team (OWASP Top 10 + WSTG),
+  which blocks deploy on any High/Critical finding. The pipeline is now **8 stages**.
+
 ## [0.1.0] - 2026-07-15
 ### Added
 - Initial release: free, Claude-Code-native Agile pipeline with **7 independent

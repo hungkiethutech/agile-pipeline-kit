@@ -25,7 +25,7 @@ Sau đó sửa `pipeline.config.yml`, sửa `tickets/T001.md`, mở Claude Code 
   source của Dev → tìm lỗi khách quan, như người dùng thật.
 - **Dev code theo hợp đồng:** bám `schema` + `openapi.yaml` của đội Kiến trúc.
 
-## 7 bước
+## 8 bước
 | # | Bước | Thư mục | Subagent |
 |---|---|---|---|
 | 1 | Yêu cầu (BA) | `specs/` | `ap-ba-agent` |
@@ -33,8 +33,9 @@ Sau đó sửa `pipeline.config.yml`, sửa `tickets/T001.md`, mở Claude Code 
 | 3 | Kiến trúc & DB | `arch/` | `ap-arch-agent` |
 | 4 | Lập trình (BE+FE) | `app/` | `ap-dev-agent` |
 | 5 | Kiểm thử (QA) | `qa/` | `ap-qa-agent` |
-| 6 | Triển khai (DevOps) | `infra/` | `ap-devops-agent` |
-| 7 | Vận hành (SRE) | `ops/` | `ap-ops-agent` |
+| 6 | Bảo mật / Pentest (OWASP Top 10) | `security/` | `ap-security-agent` |
+| 7 | Triển khai (DevOps) | `infra/` | `ap-devops-agent` |
+| 8 | Vận hành (SRE) | `ops/` | `ap-ops-agent` |
 
 Bước 2 và 3 chạy song song, rồi cả hai đổ vào bước 4.
 

@@ -15,7 +15,8 @@ enforce the DoD gates, and update status. Ticket: `$ARGUMENTS`.
 
 ## Steps 1..7 — Coordination loop
 Order: `requirements` → (`design` ∥ `architecture` in parallel) → `development` → `qa`
-→ `devops` → `ops`.
+→ `security` → `devops` → `ops`. Security (OWASP Top 10 pentest) runs after functional QA
+and blocks deploy on any High/Critical finding.
 
 For each stage:
 1. Invoke the matching subagent (`ap-<stage>-agent`) via the Agent tool, passing in the prompt:

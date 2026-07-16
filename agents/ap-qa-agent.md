@@ -43,4 +43,4 @@ Read `pipeline.config.yml` → `stages.qa`. Skills `vc-web-testing`, `vc-scenari
 
 ## Handoff
 If there are blocking bugs → the orchestrator routes the ticket back to Dev (stage 4).
-If everything passes → proceed to Deployment.
+If everything passes → proceed to Security/Pentest (stage 6).

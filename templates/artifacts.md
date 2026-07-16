@@ -80,7 +80,30 @@ DoD: every AC exercised through the real UI; edge cases + security checked; bugs
 
 ---
 
-## 6. Release Notes — `infra/<id>-release-notes.md`
+## 6. Security / Pentest Report — `security/<id>-pentest-report.md`
+```markdown
+# Security / Pentest Report — <id>
+## Scope & attack surface (from PRD + architecture)
+## OWASP Top 10 (2021) results (PASS / FAIL / N-A — with note)
+- [ ] A01 Broken Access Control
+- [ ] A02 Cryptographic Failures
+- [ ] A03 Injection
+- [ ] A04 Insecure Design
+- [ ] A05 Security Misconfiguration
+- [ ] A06 Vulnerable & Outdated Components
+- [ ] A07 Identification & Authentication Failures
+- [ ] A08 Software & Data Integrity Failures
+- [ ] A09 Security Logging & Monitoring Failures
+- [ ] A10 Server-Side Request Forgery (SSRF)
+## Findings
+- Title | OWASP category | Severity (CVSS) | Reproduction | Remediation
+## Verdict: PASS / FAIL  (any High/Critical = FAIL)
+```
+DoD: all Top 10 reviewed (tested or N/A with reason); findings have severity + repro + remediation; verdict set.
+
+---
+
+## 7. Release Notes — `infra/<id>-release-notes.md`
 ```markdown
 # Release Notes — <id>
 ## Version / date
@@ -92,7 +115,7 @@ DoD: reproducible pipeline; full env list (names); rollback documented.
 
 ---
 
-## 7. Incident Log — `ops/<id>-incident-log.md`
+## 8. Incident Log — `ops/<id>-incident-log.md`
 ```markdown
 # Incident Log — <id>
 ## Monitoring (tool, URL, metrics tracked)

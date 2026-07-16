@@ -25,10 +25,13 @@ stages:
   qa:                           # Stage 5 — INDEPENDENT QA (black-box)
     skill: vc-web-testing
     repo: goldbergyoni/javascript-testing-best-practices   # + microsoft/playwright
-  devops:                       # Stage 6 — Deployment
+  security:                     # Stage 6 — INDEPENDENT Pentest (OWASP Top 10)
+    skill: vc-security
+    repo: OWASP/wstg                       # + OWASP/Top10, OWASP/CheatSheetSeries, zaproxy/zaproxy
+  devops:                       # Stage 7 — Deployment
     skill: ""
     repo: actions/starter-workflows        # + MichaelCade/90DaysOfDevOps
-  ops:                          # Stage 7 — Operations
+  ops:                          # Stage 8 — Operations
     skill: vc-autoresearch
     repo: upptime/upptime                  # free monitoring on GitHub Actions
 

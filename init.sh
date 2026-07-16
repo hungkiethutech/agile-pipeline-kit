@@ -7,7 +7,7 @@ set -e
 KIT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TARGET="${1:-$(pwd)}"
 
-mkdir -p "$TARGET"/{specs,design,arch,app,qa,infra,ops,tickets,status,.claude/agents,.claude/commands}
+mkdir -p "$TARGET"/{specs,design,arch,app,qa,security,infra,ops,tickets,status,.claude/agents,.claude/commands}
 
 cp "$KIT_DIR"/agents/*.md              "$TARGET"/.claude/agents/
 cp "$KIT_DIR"/commands/run-pipeline.md "$TARGET"/.claude/commands/

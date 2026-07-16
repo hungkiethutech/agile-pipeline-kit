@@ -7,7 +7,7 @@ For the one-command version, see `init.sh` in the README.
 ```bash
 mkdir my-new-project && cd my-new-project
 git init
-mkdir -p specs design arch app qa infra ops tickets status .claude/agents .claude/commands
+mkdir -p specs design arch app qa security infra ops tickets status .claude/agents .claude/commands
 ```
 
 ## Step B — Copy the kit into the project
