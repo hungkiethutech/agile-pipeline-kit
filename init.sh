@@ -7,7 +7,7 @@ set -e
 KIT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TARGET="${1:-$(pwd)}"
 
-mkdir -p "$TARGET"/{specs,design,arch,app,qa,security,infra,ops,tickets,status,.claude/agents,.claude/commands}
+mkdir -p "$TARGET"/{specs,design,arch,app,qa,security,infra,ops,tickets,status,context/adr,.claude/agents,.claude/commands}
 
 cp "$KIT_DIR"/agents/*.md              "$TARGET"/.claude/agents/
 cp "$KIT_DIR"/commands/run-pipeline.md "$TARGET"/.claude/commands/
@@ -15,6 +15,12 @@ cp "$KIT_DIR"/pipeline.config.yml      "$TARGET"/
 cp -r "$KIT_DIR"/catalog               "$TARGET"/
 cp -r "$KIT_DIR"/templates             "$TARGET"/
 cp "$KIT_DIR"/status/STATUS.template.html "$TARGET"/status/STATUS.html
+
+# Seed the persistent context layer (project long-term memory) from templates.
+# Agents read context/ first every ticket; the Architecture team keeps it current.
+cp "$KIT_DIR"/templates/context/architecture.md "$TARGET"/context/
+cp "$KIT_DIR"/templates/context/module-map.md   "$TARGET"/context/
+cp "$KIT_DIR"/templates/context/adr/ADR-template.md "$TARGET"/context/adr/
 
 # Sample ticket (only if none exists)
 if [ ! -e "$TARGET/tickets/T001.md" ]; then

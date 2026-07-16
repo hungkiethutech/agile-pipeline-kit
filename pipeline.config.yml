@@ -25,6 +25,9 @@ stages:
   qa:                           # Stage 5 — INDEPENDENT QA (black-box)
     skill: vc-web-testing
     repo: goldbergyoni/javascript-testing-best-practices   # + microsoft/playwright
+  integration:                  # Stage 5b — INDEPENDENT cross-module integration (auto-runs only if ticket touches 2+ modules)
+    skill: vc-web-testing
+    repo: microsoft/playwright
   security:                     # Stage 6 — INDEPENDENT Pentest (OWASP Top 10)
     skill: vc-security
     repo: OWASP/wstg                       # + OWASP/Top10, OWASP/CheatSheetSeries, zaproxy/zaproxy
@@ -38,3 +41,11 @@ stages:
 gates:                          # Human approval gates (pause and wait for "approve")
   - after: requirements         # approve requirements
   - before: devops              # approve before deploy
+
+# --- v0.3: coherence for many-module projects ---
+context:                        # Persistent project memory — EVERY agent reads it first
+  dir: context                  # holds architecture.md, module-map.md, adr/, glossary
+  updated_by: architecture      # the Architecture team keeps it current after each ticket
+arch_review:                    # Architectural oversight gate (agent: ap-arch-review-agent)
+  when: after development        # runs after Dev, before QA
+  blocks_on: undocumented-contract-change   # a shared-contract change without an ADR = FAIL
