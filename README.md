@@ -9,7 +9,7 @@ subscription — **no paid API, no server, no CI cost**.
 🇻🇳 Tiếng Việt: see [README.vi.md](./README.vi.md).
 
 ![Agile Pipeline status board — 8 stages with per-stage status and Definition-of-Done](./docs/status-board.png)
-*The `status/STATUS.html` board, updated by `/run-pipeline` as a ticket moves through the 7 stages.*
+*The `status/STATUS.html` board, updated by `/run-pipeline` as a ticket moves through the 8 stages.*
 
 ## ⚡ Quick setup (one command)
 ```bash
@@ -76,7 +76,7 @@ APPLY.md                    manual setup guide
 1. Configure engines in `pipeline.config.yml`.
 2. Create a ticket (a markdown file in `tickets/`).
 3. In Claude Code, run `/run-pipeline <ticket>`.
-4. The orchestrator moves the ticket through the 7 stages, pausing at 2 human gates
+4. The orchestrator moves the ticket through the 8 stages, pausing at 2 human gates
    (approve requirements, approve before deploy).
 5. Open `status/STATUS.html` in a browser to track progress.
 
