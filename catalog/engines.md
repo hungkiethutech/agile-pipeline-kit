@@ -38,8 +38,8 @@ Change your choices in `pipeline.config.yml`.
 - Skill: `vc-security` (STRIDE + OWASP)
 - Repo: `OWASP/Top10`, `OWASP/wstg` (Web Security Testing Guide), `OWASP/CheatSheetSeries`,
   `zaproxy/zaproxy` (OWASP ZAP)
-- Goal: black-box pentest of the running app against OWASP Top 10; findings with CVSS
-  severity + reproduction + remediation; High/Critical blocks deploy.
+- Goal: black-box pentest of the running app against **OWASP Top 10:2025** (latest edition);
+  findings with CVSS severity + reproduction + remediation; High/Critical blocks deploy.
 
 ## Stage 7 — Deployment (DevOps)
 - Skill: (usually none)

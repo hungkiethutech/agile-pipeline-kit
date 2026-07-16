@@ -20,10 +20,11 @@ Read `pipeline.config.yml` → `stages.security`. Skill `vc-security` (STRIDE + 
 `repo` (`OWASP/Top10`, `OWASP/wstg`, `OWASP/CheatSheetSeries`, `zaproxy/zaproxy`) is the standard.
 
 ## Standards to follow
-- **OWASP Top 10 (2021):** A01 Broken Access Control · A02 Cryptographic Failures ·
-  A03 Injection · A04 Insecure Design · A05 Security Misconfiguration · A06 Vulnerable &
-  Outdated Components · A07 Identification & Authentication Failures · A08 Software & Data
-  Integrity Failures · A09 Security Logging & Monitoring Failures · A10 SSRF.
+- **OWASP Top 10:2025** (latest edition): A01 Broken Access Control (incl. SSRF) ·
+  A02 Security Misconfiguration · A03 Software Supply Chain Failures · A04 Cryptographic
+  Failures · A05 Injection · A06 Insecure Design · A07 Authentication Failures ·
+  A08 Software & Data Integrity Failures · A09 Security Logging & Alerting Failures ·
+  A10 Mishandling of Exceptional Conditions.
 - **OWASP WSTG** (Web Security Testing Guide) methodology.
 - **Severity via CVSS**; map each finding to its OWASP category.
 - **OWASP Cheat Sheets** for recommended remediations.

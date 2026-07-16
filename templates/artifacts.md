@@ -84,17 +84,17 @@ DoD: every AC exercised through the real UI; edge cases + security checked; bugs
 ```markdown
 # Security / Pentest Report — <id>
 ## Scope & attack surface (from PRD + architecture)
-## OWASP Top 10 (2021) results (PASS / FAIL / N-A — with note)
-- [ ] A01 Broken Access Control
-- [ ] A02 Cryptographic Failures
-- [ ] A03 Injection
-- [ ] A04 Insecure Design
-- [ ] A05 Security Misconfiguration
-- [ ] A06 Vulnerable & Outdated Components
-- [ ] A07 Identification & Authentication Failures
+## OWASP Top 10:2025 results (PASS / FAIL / N-A — with note)
+- [ ] A01 Broken Access Control (incl. SSRF)
+- [ ] A02 Security Misconfiguration
+- [ ] A03 Software Supply Chain Failures
+- [ ] A04 Cryptographic Failures
+- [ ] A05 Injection
+- [ ] A06 Insecure Design
+- [ ] A07 Authentication Failures
 - [ ] A08 Software & Data Integrity Failures
-- [ ] A09 Security Logging & Monitoring Failures
-- [ ] A10 Server-Side Request Forgery (SSRF)
+- [ ] A09 Security Logging & Alerting Failures
+- [ ] A10 Mishandling of Exceptional Conditions
 ## Findings
 - Title | OWASP category | Severity (CVSS) | Reproduction | Remediation
 ## Verdict: PASS / FAIL  (any High/Critical = FAIL)

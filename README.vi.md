@@ -33,7 +33,7 @@ Sau đó sửa `pipeline.config.yml`, sửa `tickets/T001.md`, mở Claude Code 
 | 3 | Kiến trúc & DB | `arch/` | `ap-arch-agent` |
 | 4 | Lập trình (BE+FE) | `app/` | `ap-dev-agent` |
 | 5 | Kiểm thử (QA) | `qa/` | `ap-qa-agent` |
-| 6 | Bảo mật / Pentest (OWASP Top 10) | `security/` | `ap-security-agent` |
+| 6 | Bảo mật / Pentest (OWASP Top 10:2025) | `security/` | `ap-security-agent` |
 | 7 | Triển khai (DevOps) | `infra/` | `ap-devops-agent` |
 | 8 | Vận hành (SRE) | `ops/` | `ap-ops-agent` |
 

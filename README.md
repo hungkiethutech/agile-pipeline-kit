@@ -46,7 +46,7 @@ in the project and run `/run-pipeline T001`.
 | 3 | Architecture & DB | `arch/` | `ap-arch-agent` |
 | 4 | Development (BE+FE) | `app/` | `ap-dev-agent` |
 | 5 | QA (black-box) | `qa/` | `ap-qa-agent` |
-| 6 | Security / Pentest (OWASP Top 10) | `security/` | `ap-security-agent` |
+| 6 | Security / Pentest (OWASP Top 10:2025) | `security/` | `ap-security-agent` |
 | 7 | Deployment (DevOps) | `infra/` | `ap-devops-agent` |
 | 8 | Operations (SRE) | `ops/` | `ap-ops-agent` |
 
